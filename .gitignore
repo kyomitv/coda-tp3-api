@@ -1,2 +1,4 @@
 *.sh
 .env
+docker-compose.yml
+nginx.conf
