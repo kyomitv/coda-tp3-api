@@ -3,14 +3,8 @@ services:
     build: .
     ports:
       - "8000:8000"
-    environment:
-      - DATABASE_URL
-      - S3_BUCKET
-      - S3_REGION
-      - S3_ENDPOINT_URL
-      - S3_ACCESS_KEY
-      - S3_SECRET_KEY
-      - APP_VERSION
+    env_file:
+      - .env
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
